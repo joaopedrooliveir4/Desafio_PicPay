@@ -1,0 +1,18 @@
+CREATE TABLE usuario (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf_cnpj VARCHAR(20) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    tipo_usuario VARCHAR(10) NOT NULL, -- 'COMUM' ou 'LOJISTA'
+    saldo NUMERIC(18, 2) DEFAULT 0
+);
+
+
+CREATE TABLE transferencia (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    valor NUMERIC(18, 2) NOT NULL,
+    pagador_id BIGINT NOT NULL,
+    recebedor_id BIGINT NOT NULL,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
